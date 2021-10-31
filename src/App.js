@@ -17,6 +17,7 @@ import BookNow from "./Conponents/Pages/BookNow/BookNow";
 import UpdateOrder from "./Conponents/Pages/UpdateOrder/UpdateOrder";
 import Contact from "./Conponents/Pages/Contact/Contact";
 import Footer from "./Conponents/Footer/Footer";
+import About from "./Conponents/Pages/About/About";
 
 function App() {
   return (
@@ -60,6 +61,9 @@ function App() {
           <PrivateRoute exact path='/contact'>
             <Contact></Contact>
           </PrivateRoute>
+          <Route exact path='/aboutus'>
+            <About></About>
+          </Route>
           <Route exact path='/register'>
             <Register></Register>
           </Route>
