@@ -20,7 +20,7 @@ const ManageOrders = () => {
           // console.log(data)
             setOrderedUser(data);
         });
-}, [])
+}, [ordersId])
 
 const handleDelete = id =>{
   const url = `https://frightening-cheateau-28703.herokuapp.com/ordered/${id}`
@@ -83,7 +83,7 @@ const handleDelete = id =>{
                 </tr>
               </thead>
               <tbody className="bg-gray-100 divide-y divide-gray-200">
-                {orderedUser.map((person) => (
+                { orderedUser.map((person) => (
                   <tr key={(person.orderedId) || (person.price)}>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div className="flex items-center text-center">

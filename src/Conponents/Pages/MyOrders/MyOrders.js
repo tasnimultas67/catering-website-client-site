@@ -3,15 +3,17 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
+import useAuth from '../../../Hooks/useAuth';
 
 
 
 const MyOrders = () => {
     const [orderedUser, setOrderedUser] = useState([])
     const [open, setOpen] = useState(false)
+    const {user} = useAuth()
+    console.log(user)
     const cancelButtonRef = useRef(null)
     const [ordersId, setordersId] = useState([])
-  
   
     useEffect(() => {
       fetch('https://frightening-cheateau-28703.herokuapp.com/manageorders')
@@ -20,7 +22,7 @@ const MyOrders = () => {
             // console.log(data)
               setOrderedUser(data);
           });
-  }, [])
+  }, [ordersId])
   
   const handleDelete = id =>{
     const url = `https://frightening-cheateau-28703.herokuapp.com/ordered/${id}`
@@ -38,6 +40,7 @@ const MyOrders = () => {
   
     })
   }
+  // You didn't order anything
     return (
         <div>
           <div className='mt-9'>
@@ -79,7 +82,7 @@ const MyOrders = () => {
                 </tr>
               </thead>
               <tbody className="bg-gray-100 divide-y divide-gray-200">
-                {orderedUser.map((person) => (
+                  {orderedUser.map((person) => ( 
                   <tr key={(person.orderedId) || (person.price)}>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div className="flex items-center text-center">
